@@ -1,4 +1,4 @@
-PROFESOR: GUSTAVO CORONEL
+PROFESOR: GUSTAVO CORONEL CASTILLO
 
 CLASE 01
 ----------------------------------------------
