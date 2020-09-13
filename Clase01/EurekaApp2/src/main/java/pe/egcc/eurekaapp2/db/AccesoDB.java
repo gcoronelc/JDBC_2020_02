@@ -1,4 +1,4 @@
-package pe.uni.eurekaapp.db;
+package pe.egcc.eurekaapp2.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,8 +21,8 @@ public final class AccesoDB {
 		// Parámetros
 		String driver = "oracle.jdbc.OracleDriver";
 		String urlDB = "jdbc:oracle:thin:@localhost:1521/XE";
-		String user = "pepe";
-		String pass = "pepe";
+		String user = "eureka";
+		String pass = "admin";
 		try {
 			Class.forName(driver).newInstance();
 			cn = DriverManager.getConnection(urlDB, user, pass);
