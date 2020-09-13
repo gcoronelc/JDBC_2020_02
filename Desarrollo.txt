@@ -1,0 +1,16 @@
+CLASE 01
+----------------------------------------------
+1.- Repositorio en GitHub.
+2.- Introducción a Base de Datos
+3.- Introducción a Oracle
+4.- El esquema de Trabajo: EUREKA
+5.- conexión
+6.- Statement
+7.- PreparedStatement
+
+CLASE 01
+----------------------------------------------
+1.- CollableStatement
+2.- Consultas
+3.- Iniciado EurekaApp
+4.- Login
