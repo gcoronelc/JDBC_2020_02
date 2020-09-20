@@ -28,7 +28,8 @@ end;
 select dec_cuensaldo, int_cuencontmov from cuenta where chr_cuencodigo = '00100001';
 
 
-select * from movimiento where chr_cuencodigo = '00100002';
+select * from eureka.cuenta where chr_cuencodigo = '00100001';
+select * from eureka.movimiento where chr_cuencodigo = '00100001';
 
 desc movimiento;
 

@@ -13,7 +13,7 @@ is
 begin
 
 	select dec_cuensaldo into p_saldo
-	from cuenta
+	from cuenta 
 	where chr_cuencodigo = p_cuenta;
 
 end;
@@ -22,6 +22,8 @@ end;
 -- Prueba
 
 set serveroutput on
+
+select * from cuenta;
 
 declare
 	v_saldo number;
@@ -36,6 +38,7 @@ declare
 	v_cuenta char(8);
 begin
 	usp_egcc_saldo_cuenta(&v_cuenta,v_saldo);
+    dbms_output.put_line('Cuenta: ' || v_cuenta);
 	dbms_output.put_line('Saldo: ' || v_saldo);
 end;
 /
