@@ -19,13 +19,3 @@ CLASE 01
 
 
 
-emote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
-Unpacking objects: 100% (3/3), 362 bytes | 30.00 KiB/s, done.
-From https://github.com/gcoronelc/JDBC_2020_02
-   cebdb10..78fd5f6  master     -> origin/master
-error: Your local changes to the following files would be overwritten by merge:
-        Desarrollo.txt
-Please commit your changes or stash them before yo
