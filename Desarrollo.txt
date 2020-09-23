@@ -19,3 +19,17 @@ CLASE 01
 
 
 
+chr_cuencodigo     not null char(8)      
+int_movinumero     not null number(6)    
+dtt_movifecha      not null date         
+chr_emplcodigo     not null char(4)      
+chr_tipocodigo     not null char(3)      
+dec_moviimporte    not null number(12,2) 
+chr_cuenreferencia          char(8) 
+
+
+insert into movimiento(chr_cuencodigo,int_movinumero,dtt_movifecha,chr_emplcodigo,chr_tipocodigo,dec_moviimporte)
+values(?,?,sysdate,?,?,?)
+/
+
+select sysdate from dual;
