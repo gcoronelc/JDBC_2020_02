@@ -1,5 +1,8 @@
 package pe.uni.eurekaapp.view;
 
+import pe.uni.eurekaapp.controller.LogonController;
+import pe.uni.eurekaapp.util.Mensaje;
+
 /**
  * @author Eric Gustavo Coronel Castillo
  * @blog www.desarrollasoftware.com
@@ -12,6 +15,7 @@ public class LogonView extends javax.swing.JFrame {
     /** Creates new form LogonView */
     public LogonView() {
         initComponents();
+		  this.setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to
@@ -90,6 +94,11 @@ public class LogonView extends javax.swing.JFrame {
 
       btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
       btnIngresar.setText("Ingresar");
+      btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnIngresarActionPerformed(evt);
+         }
+      });
 
       javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
       jPanel2.setLayout(jPanel2Layout);
@@ -145,6 +154,22 @@ public class LogonView extends javax.swing.JFrame {
    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
       System.exit(0);
    }//GEN-LAST:event_btnSalirActionPerformed
+
+   private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+      try {
+			// Datos
+			String usuario = txtUsuario.getText();
+			String clave  = String.valueOf(txtClave.getPassword());
+			// Procesar
+			LogonController logonController = new LogonController();
+			logonController.validar(usuario, clave);
+			this.dispose();
+			EurekaMain.main(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Mensaje.error(this, e.getMessage());
+		}
+   }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments

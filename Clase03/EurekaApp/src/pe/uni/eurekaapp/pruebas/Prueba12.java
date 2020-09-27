@@ -17,7 +17,7 @@ public class Prueba12 {
 	public static void main(String[] args) {
 		try {
 			// Datos
-			String usuario = "cromerox";
+			String usuario = "cromero";
 			String clave = "chicho";
 			// Proceso
 			LogonService service = new LogonService();
