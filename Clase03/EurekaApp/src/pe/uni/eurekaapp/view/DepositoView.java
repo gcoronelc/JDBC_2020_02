@@ -187,7 +187,7 @@ public class DepositoView extends javax.swing.JInternalFrame {
 			double importe = Double.parseDouble(txtImporte.getText());
 			// Proceso
 			CuentaController controller = new CuentaController();
-			controller.registrarDeposito(cuenta, importe, "0004");
+			controller.registrarDeposito(cuenta, importe);
 			JOptionPane.showMessageDialog(rootPane, "Proceso ok.");
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(rootPane, e.getMessage(), 

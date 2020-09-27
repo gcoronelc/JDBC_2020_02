@@ -1,7 +1,9 @@
 package pe.uni.eurekaapp.pruebas;
 
 import pe.uni.eurekaapp.controller.CuentaController;
+import pe.uni.eurekaapp.model.EmpleadoModel;
 import pe.uni.eurekaapp.service.CuentaService;
+import pe.uni.eurekaapp.service.LogonService;
 
 /**
  * @author Eric Gustavo Coronel Castillo
@@ -10,15 +12,20 @@ import pe.uni.eurekaapp.service.CuentaService;
  * @youtube www.youtube.com/c/DesarrollaSoftware
  * @facebook www.facebook.com/groups/desarrollasoftware/
  */
-public class Prueba11 {
+public class Prueba12 {
 	
 	public static void main(String[] args) {
 		try {
-			CuentaController controller = new CuentaController();
-			controller.registrarDeposito("00100001", 1000);
-			System.out.println("Proceso ok.");
+			// Datos
+			String usuario = "cromerox";
+			String clave = "chicho";
+			// Proceso
+			LogonService service = new LogonService();
+			EmpleadoModel model = service.validar(usuario, clave);
+			// Reporte
+			System.out.println("Hola " + model.getNombre());
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		} 
 		
 	}

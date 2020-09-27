@@ -17,8 +17,8 @@ public class CuentaController {
 		cuentaService = new CuentaService();
 	}
 	
-	public void registrarDeposito(String cuenta, double importe, String empleado){
-		cuentaService.registrarDeposito(cuenta, importe, empleado);
+	public void registrarDeposito(String cuenta, double importe){
+		cuentaService.registrarDeposito(cuenta, importe, "E0004");
 	}
 	
 }
