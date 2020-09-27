@@ -45,11 +45,13 @@ public class LogonView extends javax.swing.JFrame {
       jLabel1.setText("Usuario");
 
       txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+      txtUsuario.setText("cromero");
 
       jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
       jLabel2.setText("Clave");
 
       txtClave.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+      txtClave.setText("chicho");
 
       javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
       jPanel1.setLayout(jPanel1Layout);

@@ -2,6 +2,8 @@ package pe.uni.eurekaapp.view;
 
 import java.beans.PropertyVetoException;
 import javax.swing.JInternalFrame;
+import pe.uni.eurekaapp.model.EmpleadoModel;
+import pe.uni.eurekaapp.util.Session;
 
 /**
  * @author Eric Gustavo Coronel Castillo
@@ -15,7 +17,15 @@ public class EurekaMain extends javax.swing.JFrame {
     /** Creates new form EurekaMain */
     public EurekaMain() {
         initComponents();
+		  crearTitulo();
+		  this.setExtendedState(MAXIMIZED_BOTH);
     }
+	 
+	 private void crearTitulo(){
+		 EmpleadoModel model = (EmpleadoModel) Session.get("USUARIO");
+		 String titulo = "EUREKA APP - " + model.getUsuario();
+		 this.setTitle(titulo);
+	 }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -32,6 +42,8 @@ public class EurekaMain extends javax.swing.JFrame {
       exitMenuItem = new javax.swing.JMenuItem();
       menuProceso = new javax.swing.JMenu();
       menuProcesoDeposito = new javax.swing.JMenuItem();
+      menuConsulta = new javax.swing.JMenu();
+      menuConsultaMovimientos = new javax.swing.JMenuItem();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +72,13 @@ public class EurekaMain extends javax.swing.JFrame {
       menuProceso.add(menuProcesoDeposito);
 
       menuBar.add(menuProceso);
+
+      menuConsulta.setText("Consulta");
+
+      menuConsultaMovimientos.setText("Movimientos");
+      menuConsulta.add(menuConsultaMovimientos);
+
+      menuBar.add(menuConsulta);
 
       setJMenuBar(menuBar);
 
@@ -131,6 +150,8 @@ public class EurekaMain extends javax.swing.JFrame {
    private javax.swing.JMenuItem exitMenuItem;
    private javax.swing.JMenu fileMenu;
    private javax.swing.JMenuBar menuBar;
+   private javax.swing.JMenu menuConsulta;
+   private javax.swing.JMenuItem menuConsultaMovimientos;
    private javax.swing.JMenu menuProceso;
    private javax.swing.JMenuItem menuProcesoDeposito;
    // End of variables declaration//GEN-END:variables
