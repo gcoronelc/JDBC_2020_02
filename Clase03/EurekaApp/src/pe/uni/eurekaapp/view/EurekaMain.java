@@ -76,6 +76,11 @@ public class EurekaMain extends javax.swing.JFrame {
       menuConsulta.setText("Consulta");
 
       menuConsultaMovimientos.setText("Movimientos");
+      menuConsultaMovimientos.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            menuConsultaMovimientosActionPerformed(evt);
+         }
+      });
       menuConsulta.add(menuConsultaMovimientos);
 
       menuBar.add(menuConsulta);
@@ -109,6 +114,16 @@ public class EurekaMain extends javax.swing.JFrame {
 		 } catch (PropertyVetoException ex) {
 		 }
    }//GEN-LAST:event_menuProcesoDepositoActionPerformed
+
+   private void menuConsultaMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaMovimientosActionPerformed
+      try {
+			 JInternalFrame view = new ConsultaMovimientos();
+			 desktopPane.add(view);
+			 view.setVisible(true);
+			 view.setMaximum(true);
+		 } catch (PropertyVetoException ex) {
+		 }
+   }//GEN-LAST:event_menuConsultaMovimientosActionPerformed
 
     /**
      * @param args the command line arguments

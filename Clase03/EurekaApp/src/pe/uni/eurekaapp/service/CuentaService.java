@@ -107,7 +107,7 @@ public class CuentaService {
 					  + "movinumero, movifecha, moviimporte, tipocodigo, tiponombre "
 					  + "from EUREKA.v_movimientos where cuencodigo = ?";
 			PreparedStatement pstm = cn.prepareStatement(sql);
-			pstm.setString(1, "cuenta");
+			pstm.setString(1, cuenta);
 			ResultSet rs = pstm.executeQuery();
 			lista = JdbcUtil.rsToList(rs);
 			rs.close();

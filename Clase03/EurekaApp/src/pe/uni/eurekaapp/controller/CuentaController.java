@@ -1,5 +1,7 @@
 package pe.uni.eurekaapp.controller;
 
+import java.util.List;
+import java.util.Map;
 import pe.uni.eurekaapp.service.CuentaService;
 
 /**
@@ -20,5 +22,10 @@ public class CuentaController {
 	public void registrarDeposito(String cuenta, double importe){
 		cuentaService.registrarDeposito(cuenta, importe, "E0004");
 	}
+	
+	public List<Map<String,?>> getMovimientos(String cuenta){
+		return cuentaService.getMovimientos(cuenta);
+	} 
+	
 	
 }

@@ -1,5 +1,11 @@
 package pe.uni.eurekaapp.view;
 
+import java.util.List;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import pe.uni.eurekaapp.controller.CuentaController;
+import pe.uni.eurekaapp.util.Mensaje;
+
 /**
  * @author Eric Gustavo Coronel Castillo
  * @blog www.desarrollasoftware.com
@@ -27,10 +33,10 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
       jLabel1 = new javax.swing.JLabel();
       txtCuenta = new javax.swing.JTextField();
       jButton1 = new javax.swing.JButton();
-      jButton2 = new javax.swing.JButton();
+      btnConsultar = new javax.swing.JButton();
       jPanel2 = new javax.swing.JPanel();
       jScrollPane1 = new javax.swing.JScrollPane();
-      jTable1 = new javax.swing.JTable();
+      tblResultado = new javax.swing.JTable();
 
       setTitle("CONSULTA DE MOVIMIENTOS");
 
@@ -44,8 +50,13 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
       jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
       jButton1.setText("Excel");
 
-      jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-      jButton2.setText("Consultar");
+      btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+      btnConsultar.setText("Consultar");
+      btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnConsultarActionPerformed(evt);
+         }
+      });
 
       javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
       jPanel1.setLayout(jPanel1Layout);
@@ -57,10 +68,10 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
-            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(152, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
       jPanel1Layout.setVerticalGroup(
          jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,14 +81,14 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                   .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-               .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+               .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap(23, Short.MAX_VALUE))
       );
 
       jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTROL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(51, 153, 255))); // NOI18N
 
-      jTable1.setModel(new javax.swing.table.DefaultTableModel(
+      tblResultado.setModel(new javax.swing.table.DefaultTableModel(
          new Object [][] {
             {null, null, null, null},
             {null, null, null, null},
@@ -103,12 +114,12 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
             return canEdit [columnIndex];
          }
       });
-      jScrollPane1.setViewportView(jTable1);
-      if (jTable1.getColumnModel().getColumnCount() > 0) {
-         jTable1.getColumnModel().getColumn(0).setResizable(false);
-         jTable1.getColumnModel().getColumn(1).setResizable(false);
-         jTable1.getColumnModel().getColumn(2).setResizable(false);
-         jTable1.getColumnModel().getColumn(3).setResizable(false);
+      jScrollPane1.setViewportView(tblResultado);
+      if (tblResultado.getColumnModel().getColumnCount() > 0) {
+         tblResultado.getColumnModel().getColumn(0).setResizable(false);
+         tblResultado.getColumnModel().getColumn(1).setResizable(false);
+         tblResultado.getColumnModel().getColumn(2).setResizable(false);
+         tblResultado.getColumnModel().getColumn(3).setResizable(false);
       }
 
       javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -117,15 +128,15 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
          jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(jPanel2Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jScrollPane1)
-            .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(230, Short.MAX_VALUE))
       );
       jPanel2Layout.setVerticalGroup(
          jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(jPanel2Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addContainerGap())
       );
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -152,15 +163,40 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
+   private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+      try {
+			// Datos
+			String cuenta = txtCuenta.getText();
+			// Proceso
+			CuentaController control = new CuentaController();
+			List<Map<String,?>> lista = control.getMovimientos(cuenta);
+			// Mostrar resultado
+			DefaultTableModel tabla;
+			tabla = (DefaultTableModel) tblResultado.getModel();
+			tabla.setRowCount(0);
+			for (Map<String, ?> r : lista) {
+				Object[] rowData = {
+					r.get("cuencodigo").toString(),
+					r.get("tiponombre").toString(),
+					r.get("movifecha").toString(),
+					Double.parseDouble(r.get("moviimporte").toString())
+				};
+				tabla.addRow(rowData);
+			}
+		} catch (Exception e) {
+			Mensaje.error(this, e.getMessage());
+		}
+   }//GEN-LAST:event_btnConsultarActionPerformed
+
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton btnConsultar;
    private javax.swing.JButton jButton1;
-   private javax.swing.JButton jButton2;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JPanel jPanel1;
    private javax.swing.JPanel jPanel2;
    private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable jTable1;
+   private javax.swing.JTable tblResultado;
    private javax.swing.JTextField txtCuenta;
    // End of variables declaration//GEN-END:variables
 
