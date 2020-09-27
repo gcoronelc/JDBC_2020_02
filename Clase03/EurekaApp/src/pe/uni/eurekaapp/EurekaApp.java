@@ -1,5 +1,7 @@
 package pe.uni.eurekaapp;
 
+import pe.uni.eurekaapp.view.LogonView;
+
 /**
  * @author Eric Gustavo Coronel Castillo
  * @blog www.desarrollasoftware.com
@@ -10,10 +12,7 @@ package pe.uni.eurekaapp;
 public class EurekaApp {
 
 	public static void main(String[] args) {
-
-		
-		
-		
+		LogonView.main(args);
 	}
 
 }
