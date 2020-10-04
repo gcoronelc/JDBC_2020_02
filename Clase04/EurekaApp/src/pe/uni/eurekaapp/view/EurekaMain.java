@@ -44,6 +44,8 @@ public class EurekaMain extends javax.swing.JFrame {
       menuProcesoDeposito = new javax.swing.JMenuItem();
       menuConsulta = new javax.swing.JMenu();
       menuConsultaMovimientos = new javax.swing.JMenuItem();
+      menuReportes = new javax.swing.JMenu();
+      menuReporteMovimientos = new javax.swing.JMenuItem();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +87,18 @@ public class EurekaMain extends javax.swing.JFrame {
 
       menuBar.add(menuConsulta);
 
+      menuReportes.setText("Reportes");
+
+      menuReporteMovimientos.setText("Movimientos");
+      menuReporteMovimientos.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            menuReporteMovimientosActionPerformed(evt);
+         }
+      });
+      menuReportes.add(menuReporteMovimientos);
+
+      menuBar.add(menuReportes);
+
       setJMenuBar(menuBar);
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -124,6 +138,16 @@ public class EurekaMain extends javax.swing.JFrame {
 		 } catch (PropertyVetoException ex) {
 		 }
    }//GEN-LAST:event_menuConsultaMovimientosActionPerformed
+
+   private void menuReporteMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReporteMovimientosActionPerformed
+      try {
+			 JInternalFrame view = new RepoMovimientosView();
+			 desktopPane.add(view);
+			 view.setVisible(true);
+			 view.setMaximum(true);
+		 } catch (PropertyVetoException ex) {
+		 }
+   }//GEN-LAST:event_menuReporteMovimientosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +193,8 @@ public class EurekaMain extends javax.swing.JFrame {
    private javax.swing.JMenuItem menuConsultaMovimientos;
    private javax.swing.JMenu menuProceso;
    private javax.swing.JMenuItem menuProcesoDeposito;
+   private javax.swing.JMenuItem menuReporteMovimientos;
+   private javax.swing.JMenu menuReportes;
    // End of variables declaration//GEN-END:variables
 
 }

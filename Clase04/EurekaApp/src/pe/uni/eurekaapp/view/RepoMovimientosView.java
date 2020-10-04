@@ -1,10 +1,19 @@
 package pe.uni.eurekaapp.view;
 
+import java.awt.BorderLayout;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
+import net.sf.jasperreports.view.JRViewer;
+import net.sf.jasperreports.view.JasperViewer;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
@@ -22,14 +31,14 @@ import pe.uni.eurekaapp.util.Mensaje;
  * @youtube www.youtube.com/c/DesarrollaSoftware
  * @facebook www.facebook.com/groups/desarrollasoftware/
  */
-public class ConsultaMovimientos extends javax.swing.JInternalFrame {
+public class RepoMovimientosView extends javax.swing.JInternalFrame {
 
 	private List<Map<String, ?>> lista = null;
-	
+
 	/**
 	 * Creates new form ConsultaMovimientos
 	 */
-	public ConsultaMovimientos() {
+	public RepoMovimientosView() {
 		initComponents();
 	}
 
@@ -45,9 +54,7 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
       txtCuenta = new javax.swing.JTextField();
       btnExcel = new javax.swing.JButton();
       btnConsultar = new javax.swing.JButton();
-      jPanel2 = new javax.swing.JPanel();
-      jScrollPane1 = new javax.swing.JScrollPane();
-      tblResultado = new javax.swing.JTable();
+      panelReporte = new javax.swing.JPanel();
 
       setTitle("CONSULTA DE MOVIMIENTOS");
 
@@ -102,57 +109,17 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
             .addContainerGap(23, Short.MAX_VALUE))
       );
 
-      jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RESULTADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(51, 153, 255))); // NOI18N
+      panelReporte.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(51, 153, 255))); // NOI18N
 
-      tblResultado.setModel(new javax.swing.table.DefaultTableModel(
-         new Object [][] {
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null}
-         },
-         new String [] {
-            "CUENTA", "MOVIMIENTO", "FECHA", "IMPORTE"
-         }
-      ) {
-         Class[] types = new Class [] {
-            java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
-         };
-         boolean[] canEdit = new boolean [] {
-            false, false, true, true
-         };
-
-         public Class getColumnClass(int columnIndex) {
-            return types [columnIndex];
-         }
-
-         public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return canEdit [columnIndex];
-         }
-      });
-      jScrollPane1.setViewportView(tblResultado);
-      if (tblResultado.getColumnModel().getColumnCount() > 0) {
-         tblResultado.getColumnModel().getColumn(0).setResizable(false);
-         tblResultado.getColumnModel().getColumn(1).setResizable(false);
-         tblResultado.getColumnModel().getColumn(2).setResizable(false);
-         tblResultado.getColumnModel().getColumn(3).setResizable(false);
-      }
-
-      javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-      jPanel2.setLayout(jPanel2Layout);
-      jPanel2Layout.setHorizontalGroup(
-         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addGroup(jPanel2Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(230, Short.MAX_VALUE))
+      javax.swing.GroupLayout panelReporteLayout = new javax.swing.GroupLayout(panelReporte);
+      panelReporte.setLayout(panelReporteLayout);
+      panelReporteLayout.setHorizontalGroup(
+         panelReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGap(0, 936, Short.MAX_VALUE)
       );
-      jPanel2Layout.setVerticalGroup(
-         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addGroup(jPanel2Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jScrollPane1)
-            .addContainerGap())
+      panelReporteLayout.setVerticalGroup(
+         panelReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGap(0, 473, Short.MAX_VALUE)
       );
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,7 +130,7 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
             .addContainerGap()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+               .addComponent(panelReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
       );
       layout.setVerticalGroup(
@@ -172,7 +139,7 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
             .addContainerGap()
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addContainerGap())
       );
 
@@ -186,19 +153,30 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
 			// Proceso
 			CuentaController control = new CuentaController();
 			lista = control.getMovimientos(cuenta);
-			// Mostrar resultado
-			DefaultTableModel tabla;
-			tabla = (DefaultTableModel) tblResultado.getModel();
-			tabla.setRowCount(0);
-			for (Map<String, ?> r : lista) {
-				Object[] rowData = {
-					r.get("CUENCODIGO").toString(),
-					r.get("TIPONOMBRE").toString(),
-					r.get("MOVIFECHA").toString(),
-					Double.parseDouble(r.get("MOVIIMPORTE").toString())
-				};
-				tabla.addRow(rowData);
-			}
+			// Preparar reporte
+			JRMapCollectionDataSource data = new JRMapCollectionDataSource(lista);
+			Map pars = new HashMap();
+			String reporte = "/pe/uni/eurekaapp/reportes/repoMovimientos.jrxml";
+			InputStream is = Class.class.getResourceAsStream(reporte);
+			JasperReport rep = JasperCompileManager.compileReport(is);
+			JasperPrint print = JasperFillManager.fillReport(rep, pars, data);
+			// Mostrar Reporte - Caso 1
+			/*
+			JasperViewer viewer = new JasperViewer(print, false);
+			viewer.setTitle("Mi Reporte");
+			viewer.setVisible(true);
+			 */
+			// Mostrar Reporte - Caso 2
+			// Se crea el visor del reporte
+			JRViewer jRViewer = new JRViewer(print);
+			//se elimina elementos del contenedor JPanel
+			panelReporte.removeAll();
+			//para el tamaño del reporte se agrega un BorderLayout
+			panelReporte.setLayout(new BorderLayout());
+			panelReporte.add(jRViewer,BorderLayout.CENTER);
+			jRViewer.setVisible(true);
+			panelReporte.repaint();
+			panelReporte.revalidate();
 		} catch (Exception e) {
 			Mensaje.error(this, e.getMessage());
 		}
@@ -255,16 +233,14 @@ public class ConsultaMovimientos extends javax.swing.JInternalFrame {
 		celda.setCellStyle(style);
 		celda.setCellValue(dato);
 	}
-	
+
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton btnConsultar;
    private javax.swing.JButton btnExcel;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JPanel jPanel1;
-   private javax.swing.JPanel jPanel2;
-   private javax.swing.JScrollPane jScrollPane1;
-   private javax.swing.JTable tblResultado;
+   private javax.swing.JPanel panelReporte;
    private javax.swing.JTextField txtCuenta;
    // End of variables declaration//GEN-END:variables
 
