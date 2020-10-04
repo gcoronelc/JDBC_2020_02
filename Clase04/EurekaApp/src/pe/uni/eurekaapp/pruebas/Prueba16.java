@@ -1,8 +1,9 @@
 package pe.uni.eurekaapp.pruebas;
 
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
@@ -19,43 +20,41 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
  * @youtube www.youtube.com/c/DesarrollaSoftware
  * @facebook www.facebook.com/groups/desarrollasoftware/
  */
-public class Prueba15 {
+public class Prueba16 {
 
 	public static void main(String[] args) {
 		try {
 			// Obtener libro
-			String plantilla = "/pe/uni/eurekaapp/plantillas/PLANTILLA01.xls";
-			InputStream isPlantilla = Class.class.getResourceAsStream(plantilla);
-			POIFSFileSystem fs = new POIFSFileSystem(isPlantilla);
-			HSSFWorkbook libro = new HSSFWorkbook(fs, true);
+			String fileName = "E:\\DEMO01.xls";
+			FileInputStream fileInputStream = new FileInputStream(fileName);
+			POIFSFileSystem fs = new POIFSFileSystem(fileInputStream);
+			HSSFWorkbook libro = new HSSFWorkbook(fs);
 			// Obtener referencia a la hoja de trabajo
 			HSSFSheet hoja = libro.getSheetAt(0);
-			HSSFRow fila;
-			// Estudiante 1
-			fila = hoja.createRow(2);
-			crearCeldaCadena(fila, 0, "GUSTAVO");
-			crearCeldaEntero(fila, 1, 20);
-			crearCeldaCadena(fila, 2, "APROBADO");
-			// Estudiante 2
-			fila = hoja.createRow(3);
-			crearCeldaCadena(fila, 0, "KARLA");
-			crearCeldaEntero(fila, 1, 18);
-			crearCeldaCadena(fila, 2, "APROBADO");
-			// Estudiante 3
-			fila = hoja.createRow(4);
-			crearCeldaCadena(fila, 0, "RICARDO");
-			crearCeldaEntero(fila, 1, 19);
-			crearCeldaCadena(fila, 2, "APROBADO");
-			// Estudiante 4
-			fila = hoja.createRow(5);
-			crearCeldaCadena(fila, 0, "PEDRO");
-			crearCeldaEnteroRojo(fila, 1, 10);
-			crearCeldaCadena(fila, 2, "DESAPROBADO");
-			// Grabar libro
-			String strNombreArchivo = "E:\\DEMO01.xls";
-			FileOutputStream fileOut = new FileOutputStream(strNombreArchivo);
-			libro.write(fileOut);
-			fileOut.close();
+			// Mostrar una fila
+			HSSFRow fila = hoja.getRow(1);
+			HSSFCell celda = fila.getCell(2);
+			String valor = celda.toString();
+			System.out.println("Valor: " + valor);
+			// Toda la hoja
+			Iterator rowIterator = hoja.rowIterator();
+			int n = 0;
+			while (rowIterator.hasNext()) {
+				HSSFRow hssfRow = (HSSFRow) rowIterator.next();
+				n++;
+				if(n<=2){
+					continue;
+				}
+				Iterator iterator = hssfRow.cellIterator();
+				while (iterator.hasNext()) {
+					HSSFCell hssfCell = (HSSFCell) iterator.next();
+					String stringCellValue = hssfCell.toString();
+					stringCellValue = String.format("%1$-30s", stringCellValue);
+					System.out.print(stringCellValue);
+				}
+				System.out.println("");
+			}
+			// Fin
 			System.out.println("Todo ok.");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,6 +73,7 @@ public class Prueba15 {
 		celda.setCellStyle(style);
 		celda.setCellValue(dato);
 	}
+
 	private static void crearCeldaEnteroRojo(HSSFRow fila, int numCelda, int dato) {
 		HSSFCell celda = fila.createCell(numCelda, HSSFCell.CELL_TYPE_NUMERIC);
 		HSSFCellStyle style = fila.getSheet().getWorkbook().createCellStyle();
@@ -85,6 +85,4 @@ public class Prueba15 {
 		celda.setCellValue(dato);
 	}
 
-	
-	
 }
