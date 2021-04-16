@@ -6,14 +6,12 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import net.sf.jasperreports.view.JRViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
@@ -56,6 +54,8 @@ public class RepoMovimientosView extends javax.swing.JInternalFrame {
       btnConsultar = new javax.swing.JButton();
       panelReporte = new javax.swing.JPanel();
 
+      setClosable(true);
+      setMaximizable(true);
       setTitle("CONSULTA DE MOVIMIENTOS");
 
       jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTROL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(51, 153, 255))); // NOI18N
@@ -165,18 +165,20 @@ public class RepoMovimientosView extends javax.swing.JInternalFrame {
 			JasperViewer viewer = new JasperViewer(print, false);
 			viewer.setTitle("Mi Reporte");
 			viewer.setVisible(true);
-			 */
+			*/
+
 			// Mostrar Reporte - Caso 2
 			// Se crea el visor del reporte
 			JRViewer jRViewer = new JRViewer(print);
-			//se elimina elementos del contenedor JPanel
+			// Se elimina elementos del contenedor JPanel
 			panelReporte.removeAll();
-			//para el tamaño del reporte se agrega un BorderLayout
+			// Para el tamaño del reporte se agrega un BorderLayout
 			panelReporte.setLayout(new BorderLayout());
 			panelReporte.add(jRViewer,BorderLayout.CENTER);
 			jRViewer.setVisible(true);
 			panelReporte.repaint();
 			panelReporte.revalidate();
+
 		} catch (Exception e) {
 			Mensaje.error(this, e.getMessage());
 		}

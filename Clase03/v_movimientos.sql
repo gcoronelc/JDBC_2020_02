@@ -24,7 +24,7 @@ select
   c.dec_cuensaldo   cuensaldo,
   c.vch_cuenestado  cuenestado,
   m.int_movinumero  movinumero,
-  m.dtt_movifecha   movifecha,
+  to_char(m.dtt_movifecha,'DD/MM/YYYY')   movifecha,
   m.dec_moviimporte moviimporte,
   m.chr_cuenreferencia cuenreferencia,
   tm.chr_tipocodigo  tipocodigo,

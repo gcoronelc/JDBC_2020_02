@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba03_profesorInsert.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba08_alumnoUpdate.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/controller/ProfesorController.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba01_conexionBD.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/service/CursoService.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/SistemaDeNotasMain.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba10_cursoInsert.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Pruebazz05.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/controller/CursoController.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/util/Mensaje.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/ProfesorView.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Pruebazz02.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/controller/AlumnoController.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba07_alumnoInsert.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/controller/NotaController.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/CambiaClaveView.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/service/AlumnoService.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/AlumnoView.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/NotaView.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba05_profesorDelete.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba09_alumnoDelete.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba11_cursoUpdate.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/LogonView.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/service/LogonService.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Pruebazz04.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba06_profesorUpdateClave.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/service/NotaService.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba02_logonValidar.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/model/ProfesorModel.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/util/Session.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/view/CursoView.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/service/ProfesorService.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/controller/LogonController.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Prueba12_cursoDelete.java</file>
+            <file>file:/C:/JAVA-CORONEL/Trabajo_02_Final/SistemaDeNotasApp/src/pe/uni/sistemadenotasapp/pruebas/Pruebazz03.java</file>
+        </group>
+    </open-files>
+</project-private>
